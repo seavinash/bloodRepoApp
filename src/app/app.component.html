@@ -1,0 +1,41 @@
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item><a routerLink="/addBlood" routerLinkActive="active">Item 1</a></button>
+  <button mat-menu-item><a routerLink="/requestBlood" routerLinkActive="active">Item 2</a></button>
+</mat-menu>
+<mat-grid-list cols="4" rowHeight="1:0.6" gutterSize="10px"  >
+  <mat-grid-tile
+      *ngFor="let bloodGroup of savedBloodGroups">
+      <mat-card>
+        <mat-card-content [ngClass]="{'card-custom-content': true}">
+          {{bloodGroup.name}}
+        </mat-card-content>
+      </mat-card>
+      <mat-card [ngClass]="{'card-custom-width':true}">
+        <mat-card-content [ngClass]="{'card-custom-content': true}">
+          {{bloodGroup.count}}
+        </mat-card-content>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<form [formGroup] = "bloodGroupForm" (ngSubmit)="addBloodCount()">
+    <div [ngClass]="{'deposite-blood': true}">
+
+      <mat-form-field>
+          <mat-select placeholder="Blood Groups" matInput formControlName="name">
+            <mat-option *ngFor="let bloodGroup of bloodGroupList" [value]="bloodGroup.name">
+              {{bloodGroup.name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Blood Group Count" formControlName="count">
+      </mat-form-field>
+      <div>
+          <button matButton mat-raised-button color="primary" [disabled]="!bloodGroupForm.valid">Add</button>
+      </div>
+    </div>
+</form>
+<router-outlet></router-outlet>
