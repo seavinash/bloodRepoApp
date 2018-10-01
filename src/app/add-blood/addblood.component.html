@@ -19,12 +19,12 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<form [formGroup] = "bloodGroupForm" (ngSubmit)="checkBloodCount()">
+<form [formGroup] = "bloodGroupForm" (ngSubmit)="addBloodCount()">
     <div [ngClass]="{'deposite-blood': true}">
 
       <mat-form-field>
           <mat-select placeholder="Blood Groups" matInput formControlName="name">
-            <mat-option *ngFor="let bloodGroup of savedBloodGroups" [value]="bloodGroup.name">
+            <mat-option *ngFor="let bloodGroup of bloodGroupList" [value]="bloodGroup.name">
               {{bloodGroup.name}}
             </mat-option>
           </mat-select>

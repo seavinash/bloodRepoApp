@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { RequestBloodComponent } from './request-blood/requestblood.component';
+import { AddBloodComponent } from './add-blood/addblood.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +24,7 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
+    AddBloodComponent,
     RequestBloodComponent
   ],
   imports: [

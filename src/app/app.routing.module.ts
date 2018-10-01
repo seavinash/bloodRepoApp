@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { RequestBloodComponent } from './request-blood/requestblood.component';
+import { AddBloodComponent } from './add-blood/addblood.component';
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '', component: AppComponent },
-  { path: 'addBlood', component: AppComponent },
+  { path: '', component: AddBloodComponent },
+  { path: 'addBlood', component: AddBloodComponent },
   { path: 'requestBlood', component: RequestBloodComponent }
 ];
 
